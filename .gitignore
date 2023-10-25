@@ -1,0 +1,30 @@
+dist
+.vercel
+# Ignore directories
+node_modules/
+build/
+out/
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore system and hidden files
+.DS_Store
+Thumbs.db
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore Next.js build and export directories
+.next/
+out/
+
+# Ignore Prettier cache
+.prettier-cache
+
+# Ignore ESLint cache
+.eslintcache
