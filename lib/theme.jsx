@@ -1,12 +1,41 @@
 import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
 
 const styles = {
-  global: props => ({
+  global: {
     body: {
-      bg: mode('#f0e7db', '#202023')(props)
+      bgGradient: 'linear(to-br, #191911, #909090)'
+    },
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      background: 'rgba(0, 0, 0, 0.5)' /* Semi-transparent black overlay */,
+      zindex: 1000 /* Ensure the overlay is above other elements */
+    },
+    '.image-slider-container': {
+      position: 'relative',
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden'
+    },
+    '.image': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      opacity: 0,
+      transition: 'opacity 1s ease-in-out'
+    },
+    '.visible': {
+      opacity: 1
+    },
+    '.hidden': {
+      opacity: 0
     }
-  })
+  }
 }
 
 const components = {
@@ -14,29 +43,39 @@ const components = {
     variants: {
       'section-title': {
         textDecoration: 'underline',
-        fontSize: 20,
+        fontSize: 30,
         textUnderlineOffset: 6,
-        textDecorationColor: '#525252',
+        textDecorationColor: '#21162970',
         textDecorationThickness: 4,
         marginTop: 3,
         marginBottom: 4
+      },
+      'home-title': {
+        fontFamily: 'Times New Roman Condensed Bold',
+        marginTop: 3,
+        marginBottom: 4,
+        lineHeight: 0.6,
+        textAlign: 'left'
       }
     }
   },
   Link: {
-    baseStyle: props => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
+    baseStyle: {
+      color: '#ff63c3',
       textUnderlineOffset: 3
-    })
+    }
   }
 }
 
 const fonts = {
-  heading: "'M PLUS Rounded 1c'"
+  heading: "'Instrument Serif'"
 }
 
 const colors = {
-  grassTeal: '#88ccca'
+  grassTeal: '#88ccca',
+  codecSecondary: '#274851',
+  codecGlow: '#3bcb86',
+  codecHighlight: '#121010'
 }
 
 const config = {
@@ -44,5 +83,11 @@ const config = {
   useSystemColorMode: true
 }
 
-const theme = extendTheme({ config, styles, components, fonts, colors })
+const theme = extendTheme({
+  config,
+  styles,
+  components,
+  fonts,
+  colors
+})
 export default theme

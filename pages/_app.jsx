@@ -1,7 +1,7 @@
-import Layout from '../components/layouts/main'
-import Fonts from '../components/fonts'
+import Layout from '../components/layouts/Main'
+import Fonts from '../components/Fonts'
 import { AnimatePresence } from 'framer-motion'
-import Chakra from '../components/chakra'
+import Chakra from '../components/Chakra'
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
@@ -13,7 +13,7 @@ function Website({ Component, pageProps, router }) {
       <Fonts />
       <Layout router={router}>
         <AnimatePresence
-          exitBeforeEnter
+          mode="wait"
           initial={true}
           onExitComplete={() => {
             if (typeof window !== 'undefined') {

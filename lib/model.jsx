@@ -13,12 +13,15 @@ export function loadGLTFModel(
       glbPath,
       gltf => {
         const obj = gltf.scene
-        obj.name = 'dog'
-        obj.position.y = 0
+        obj.name = 'cat'
+        obj.position.y = -3
         obj.position.x = 0
         obj.receiveShadow = receiveShadow
         obj.castShadow = castShadow
+
         scene.add(obj)
+        const scaleFactor = 1.35 // increase
+        obj.scale.set(scaleFactor, scaleFactor, scaleFactor)
 
         obj.traverse(function (child) {
           if (child.isMesh) {

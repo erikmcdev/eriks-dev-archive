@@ -1,23 +1,20 @@
-import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
+import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import Layout from '../components/layouts/Article'
+import Section from '../components/Section'
 
-import { HouseGridItem } from '../components/grid-item'
+import { HouseGridItem } from '../components/GridItem'
 
 const Houses = ({ data }) => (
-  <Layout title="Houses">
-    <Container maxW="75%">
-      <Heading as="h3" fontSize={40} mb={10} textAlign={'center'}>
-        Houses
+  <Layout title="Catown">
+    <Container maxW="75%" mt={'5'}>
+      <Heading as="h3" fontSize={40} mb={5} textAlign={'center'}>
+        HOMES
       </Heading>
-      <SimpleGrid columns={[1, 2, 3]} gap={6}>
+      <Divider borderWidth="1px" />
+      <SimpleGrid columns={[1, 1, 3]} gap={2}>
         {data.map(house => (
           <Section key={house.id}>
-            <HouseGridItem
-              id={house.id}
-              name={house.name}
-              population={house.count}
-            />
+            <HouseGridItem id={house.id} population={house.count} />
           </Section>
         ))}
       </SimpleGrid>

@@ -1,211 +1,167 @@
-import NextLink from 'next/link'
 import {
   Link,
   Container,
   Heading,
   Box,
+  Divider,
   SimpleGrid,
-  Button,
   List,
   ListItem,
-  useColorModeValue,
-  chakra
+  Button,
+  Icon
 } from '@chakra-ui/react'
-import { ChevronRightIcon, EmailIcon } from '@chakra-ui/icons'
-import Paragraph from '../components/paragraph'
-import { BioSection, BioYear } from '../components/bio'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
-import { GridItem } from '../components/grid-item'
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
+import NextLink from 'next/link'
+import { PiCatBold } from 'react-icons/pi'
+import Paragraph from '../components/Paragraph'
+import { BioSection, BioYear } from '../components/Bio'
+import Layout from '../components/layouts/Article'
+import Section from '../components/Section'
+import { GridItem } from '../components/GridItem'
+import CodecFrame from '../components/CodecFrame'
 import thumbYouTube from '../public/images/links/youtube.png'
 import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
-import Image from 'next/image'
-
-const ProfileImage = chakra(Image, {
-  shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
-})
 
 const Home = () => (
   <Layout>
-    <Container maxW="100%">
-      <Box
-        borderRadius="lg"
-        mb={6}
-        p={3}
-        textAlign="center"
-        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
-        css={{ backdropFilter: 'blur(10px)' }}
-      >
-        Hello, I&apos;m an indie app developer based in Japan!
+    <Container maxW="80%">
+      <Box borderRadius="lg" mb={6}>
+        <Heading as="h1" variant="home-title" fontSize={['35', '50']}>
+          ERIK&apos;s
+        </Heading>
+        <Heading
+          as="h1"
+          variant="home-title"
+          fontSize={['50', '80']}
+          whiteSpace="nowrap"
+        >
+          DEV ARCHIVE
+        </Heading>
+        <Divider borderWidth="1px" />
       </Box>
-
       <Box display={{ md: 'flex' }}>
-        <Box flexGrow={1}>
-          <Heading as="h2" variant="page-title">
-            Erik Monserrate
-          </Heading>
-          <p>Digital Craftsman ( Artist / Developer / Designer )</p>
+        <Box>
+          <Heading as="h2">Erik Monserrate</Heading>
+          <p>Intrigued Backend Developer</p>
         </Box>
         <Box
           flexShrink={0}
           mt={{ base: 4, md: 0 }}
           ml={{ md: 6 }}
           textAlign="center"
+          display="block"
+          position={'relative'}
+          w="150px"
+          h="180px"
         >
-          <Box
-            borderColor="whiteAlpha.800"
-            borderWidth={2}
-            borderStyle="solid"
-            w="100px"
-            h="100px"
-            display="inline-block"
-            borderRadius="full"
-            overflow="hidden"
-          >
-            <ProfileImage
-              src="/images/takuya.jpg"
-              alt="Profile image"
-              borderRadius="full"
-              width="100"
-              height="100"
-            />
-          </Box>
+          <CodecFrame />
         </Box>
       </Box>
 
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
-          Work
+          About me
         </Heading>
-        <Paragraph>
-          Takuya is a freelance and a full-stack developer based in Osaka with a
-          passion for building digital services/stuff he wants. He has a knack
-          for all things launching products, from planning and designing all the
-          way to solving real-life problems with code. When not online, he loves
-          hanging out with his camera. Currently, he is living off of his own
-          product called{' '}
-          <Link as={NextLink} href="/works/inkdrop" passHref scroll={false}>
-            Inkdrop
-          </Link>
-          . He publishes content for marketing his products and his YouTube
-          channel called &quot;
-          <Link
-            as={NextLink}
-            href="https://www.youtube.com/devaslife"
-            passHref
-            target="_blank"
-          >
-            Dev as Life
-          </Link>
-          &quot; has more than 100k subscribers.
-        </Paragraph>
-        <Box align="center" my={4}>
-          <Button
-            as={NextLink}
-            href="/works"
-            scroll={false}
-            rightIcon={<ChevronRightIcon />}
-            colorScheme="teal"
-          >
-            My portfolio
-          </Button>
+        <Box
+          borderRadius="lg"
+          mb={6}
+          p={3}
+          textAlign="center"
+          bg={'rgba(33, 46, 45, 0.8)'}
+          css={{ backdropFilter: 'blur(100px)' }}
+        >
+          <Paragraph>
+            As a passionate server-side programmer, I specialize in crafting
+            clean and efficient architectures. My expertise extends to
+            event-driven systems, where I thrive on designing solutions that
+            seamlessly handle complex workflows. With a keen eye for detail, I
+            excel in API development, ensuring robust communication between
+            services. My problem-solving approach is fueled by curiosity.
+            Instead of just solving problems, I immerse myself in understanding
+            their intricacies, ensuring each solution is not just a remedy, but
+            a demonstration of thorough exploration.
+          </Paragraph>
         </Box>
       </Section>
 
       <Section delay={0.2}>
         <Heading as="h3" variant="section-title">
-          Bio
+          Timeline (canonical events)
         </Heading>
         <BioSection>
-          <BioYear>1984</BioYear>
-          Born in Osaka (大阪), Japan.
+          <BioYear>2000</BioYear>
+          Born in Barcelona, Spain.
         </BioSection>
         <BioSection>
-          <BioYear>2010</BioYear>
-          Completed the Master&apos;s Program in the Graduate School of
-          Information Science at Nara Institute of Science and Technology
-          (奈良先端科学技術大学院大学情報科学研究科修士課程)
+          <BioYear>2020</BioYear>
+          Completed the Multiplatform App Development (DAM) CFGS at the{' '}
+          <Link href="https://www.itb.cat/" target="_blank">
+            Barcelona Technologic Institute (ITB)
+          </Link>
         </BioSection>
         <BioSection>
-          <BioYear>2010</BioYear>
-          Worked at Yahoo! Japan (ヤフー株式会社入社)
+          <BioYear>2020</BioYear>
+          Worked at{' '}
+          <Link href="https://www.cyberclick.net/" target="_blank">
+            Cyberclick
+          </Link>
         </BioSection>
         <BioSection>
-          <BioYear>2012 to present</BioYear>
-          Working as a freelancer
+          <BioYear>2022 to present</BioYear>
+          Free-styling
         </BioSection>
       </Section>
 
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
-          I ♥
+          Other interests
         </Heading>
-        <Paragraph>
-          Art, Music,{' '}
-          <Link href="https://illust.odoruinu.net/" target="_blank">
-            Drawing
-          </Link>
-          , Playing Drums,{' '}
-          <Link href="https://500px.com/p/craftzdog" target="_blank">
-            Photography
-          </Link>
-          , Leica, Machine Learning
-        </Paragraph>
+        <Paragraph>Snorkeling, Music, Videogames, unsolved mysteries</Paragraph>
       </Section>
-
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
-          On the web
+          Flask API Showcase: Hexagonal Architecture & DDD
         </Heading>
         <List>
           <ListItem>
-            <Link href="https://github.com/craftzdog" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoGithub />}
-              >
-                @craftzdog
-              </Button>
-            </Link>
+            <Paragraph>
+              &gt; This project is a technical demo in which I apply the
+              knowledge I&apos;ve learnt about Clean Architecture and Domain
+              Driven Design and applying it to Python.
+            </Paragraph>
           </ListItem>
           <ListItem>
-            <Link href="https://twitter.com/inkdrop_app" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoTwitter />}
-              >
-                @inkdrop_app (English)
-              </Button>
-            </Link>
+            <Paragraph>
+              &gt; The domain is defined by cats which are defined by name,
+              birthdate, and most important their &quot;personality&quot;.
+            </Paragraph>
           </ListItem>
           <ListItem>
-            <Link href="https://twitter.com/craftzdog" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoTwitter />}
-              >
-                @craftzdog (日本語)
-              </Button>
-            </Link>
+            <Paragraph>
+              &gt; Cats are grouped by houses which have maximum capacity of 4
+              felines.
+            </Paragraph>
           </ListItem>
           <ListItem>
-            <Link href="https://instagram.com/craftzdog" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoInstagram />}
-              >
-                @craftzdog
-              </Button>
-            </Link>
+            <Paragraph>
+              &gt; Depending on the personalities of the inhabitants each house
+              will have a better or worse coliving coeficient, indicating how
+              well they get along.
+            </Paragraph>
           </ListItem>
         </List>
-
-        <SimpleGrid columns={[1, 2, 2]} gap={6}>
+        <Box align="center" my={4}>
+          <Button
+            as={NextLink}
+            href="/houses"
+            scroll={false}
+            rightIcon={<Icon as={PiCatBold} boxSize={6} />}
+            colorScheme="purple"
+            size="lg"
+          >
+            Try Catown API
+          </Button>
+        </Box>
+        <SimpleGrid columns={[1, 2, 2]} gap={6} mt={5}>
           <GridItem
             href="https://www.youtube.com/devaslife"
             title="Dev as Life"
@@ -221,30 +177,10 @@ const Home = () => (
             A Markdown note-taking app
           </GridItem>
         </SimpleGrid>
-
-        <Heading as="h3" variant="section-title">
-          Newsletter
-        </Heading>
-        <p>
-          Join me on a behind-the-scenes coding journey. Weekly updates on
-          projects, tutorials, and videos
-        </p>
-
-        <Box align="center" my={4}>
-          <Button
-            as={NextLink}
-            href="https://www.devas.life/"
-            scroll={false}
-            leftIcon={<EmailIcon />}
-            colorScheme="teal"
-          >
-            Sign up my newsletter here
-          </Button>
-        </Box>
       </Section>
     </Container>
   </Layout>
 )
 
 export default Home
-export { getServerSideProps } from '../components/chakra'
+export { getServerSideProps } from '../components/Chakra'
