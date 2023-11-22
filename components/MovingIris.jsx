@@ -11,25 +11,19 @@ const MovingIris = () => {
       const container = document.getElementById('iris-container')
       if (container) {
         const containerRect = container.getBoundingClientRect()
-        console.log(containerRect.left)
         // Calculate maximum allowable coordinates
         const maxX = containerRect.width - 0.5 * containerRect.width
         const maxY = containerRect.height - 0.5 * containerRect.height
         // Update position based on the cursor coordinates, keeping it within bounds
         setPosition({
-          x: Math.min(
-            maxX,
-            Math.max(100, e.clientX - containerRect.width - 80)
-          ),
-          y: Math.min(maxY, Math.max(50, e.clientY - containerRect.top - 200))
+          x: Math.min(maxX, Math.max(100, e.clientX - containerRect.width)),
+          y: Math.min(maxY, Math.max(50, e.clientY - containerRect.top - 100))
         })
       }
     }
 
-    // Add event listener to track mouse movement
     document.addEventListener('mousemove', handleMouseMove)
 
-    // Clean up the event listener on component unmount
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
     }

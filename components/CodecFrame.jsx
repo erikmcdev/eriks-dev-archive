@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
 import theme from '../lib/theme'
@@ -53,7 +54,12 @@ const getRandomDelay = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min)
 
 const CodecScreen = () => {
-  const delay = getRandomDelay(500, 1000)
+  const [delay, setDelay] = useState(0)
+
+  useEffect(() => {
+    const randomDelay = getRandomDelay(500, 1000)
+    setDelay(randomDelay)
+  }, [])
   return (
     <Box
       backgroundColor="codecSecondary"

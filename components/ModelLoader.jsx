@@ -13,7 +13,12 @@ export const ModelSpinner = () => (
 )
 
 export const ModelContainer = forwardRef(({ children }, ref) => (
-  <Box ref={ref} className="voxel-dog" w={[250, 349, 400]} h={[250, 349, 302]}>
+  <Box
+    ref={ref}
+    className="lowpoly-cat"
+    w={[250, 349, 400]}
+    h={[250, 349, 302]}
+  >
     {children}
   </Box>
 ))

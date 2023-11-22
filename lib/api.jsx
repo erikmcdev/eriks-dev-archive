@@ -1,3 +1,10 @@
+export async function getHouses() {
+  const response = await fetch('http://localhost:5005/houses')
+  const data = await response.json()
+  //console.log(data)
+
+  return data
+}
 export async function getCatsByHouseId(houseId) {
   const response = await fetch(`http://localhost:5005/cats?house_id=${houseId}`)
   const data = await response.json()

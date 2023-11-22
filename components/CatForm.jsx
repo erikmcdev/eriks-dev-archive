@@ -54,12 +54,12 @@ const CatForm = () => {
           onChange={handleInputChange}
           disabled={isSubmitting}
         >
-          <option value="1">leader of the gang</option>
-          <option value="2">ninja investigator</option>
-          <option value="3">party going</option>
-          <option value="4">lone tiger</option>
-          <option value="5">comfort connaisseur</option>
-          <option value="6">busy gossip</option>
+          <option value="LEADER_OF_THE_GANG">leader of the gang</option>
+          <option value="NINJA_INVESTIGATOR">ninja investigator</option>
+          <option value="PARTY_GOING">party going</option>
+          <option value="LONE_TIGER">lone tiger</option>
+          <option value="COMFORT_CONNAISSEUR">comfort connaisseur</option>
+          <option value="BUSY_GOSSIP">busy gossip</option>
         </Select>
         <FormErrorMessage>{formErrors.nature}</FormErrorMessage>
       </FormControl>

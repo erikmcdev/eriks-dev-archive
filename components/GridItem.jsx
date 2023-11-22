@@ -12,16 +12,16 @@ import {
 import { Global } from '@emotion/react'
 
 import HouseCard from './HouseCard'
-import VoxelDogLoader from './ModelLoader'
+import LowPolyCatLoader from './ModelLoader'
 import dynamic from 'next/dynamic'
 import { MdCake } from 'react-icons/md'
 
 import { CatText } from './CatText'
 import NatureBadge from './NatureBadge'
 
-const LazyCatLoaf = dynamic(() => import('./LowPolyCat'), {
+const LazyLowPolyCat = dynamic(() => import('./LowPolyCat'), {
   ssr: false,
-  loading: () => <VoxelDogLoader />
+  loading: () => <LowPolyCatLoader />
 })
 
 export const GridItem = ({ children, href, title, thumbnail }) => (
@@ -50,7 +50,7 @@ export const HouseGridItem = ({ id, population }) => (
       scroll={false}
       cursor="pointer"
     >
-      <HouseCard population={population} />
+      <HouseCard id={id} population={population} />
     </LinkBox>
   </Box>
 )
@@ -66,7 +66,7 @@ export const CatGridItem = ({ name, birthdate, nature }) => {
   return (
     <Box w="100%" textAlign="center">
       <VStack>
-        <LazyCatLoaf />
+        <LazyLowPolyCat />
         <CatText fontSize={30}>{name}</CatText>
         <NatureBadge nature={nature} />
         <HStack>

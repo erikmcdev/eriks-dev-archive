@@ -1,14 +1,8 @@
-import {
-  Box,
-  Center,
-  useColorModeValue,
-  Heading,
-  Stack
-} from '@chakra-ui/react'
+import { Box, Center, Heading, Stack } from '@chakra-ui/react'
 import Image from 'next/image'
 
 const IMAGE =
-  'https://i.pinimg.com/originals/82/1c/78/821c7878a6359caea82f4f680cb58e46.jpg'
+  'https://static.designboom.com/wp-content/uploads/2020/07/kooo-architects-machiya-house-renovation-kyoto-designboom-1.jpg'
 
 export default function HouseCard({ population }) {
   return (
@@ -17,7 +11,7 @@ export default function HouseCard({ population }) {
         role={'group'}
         p={6}
         maxW={'250px'}
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={'gray.800'}
         boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
@@ -58,8 +52,13 @@ export default function HouseCard({ population }) {
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-            {population} cats
+          <p></p>
+          <Heading
+            fontSize={'2xl'}
+            fontFamily={'OCR-B Regular'}
+            fontWeight={500}
+          >
+            {population} cat{population > 1 ? 's' : ''}
           </Heading>
         </Stack>
       </Box>

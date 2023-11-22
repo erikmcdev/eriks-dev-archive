@@ -19,11 +19,11 @@ import Section from '../components/Section'
 import { GridItem } from '../components/GridItem'
 import CodecFrame from '../components/CodecFrame'
 import thumbYouTube from '../public/images/links/youtube.png'
-import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
+import thumbInkdrop from '../public/images/inkdrop-banner.jpg'
 
 const Home = () => (
   <Layout>
-    <Container maxW="80%">
+    <Container maxW={{ base: '100%', md: '90%' }} mt={6}>
       <Box borderRadius="lg" mb={6}>
         <Heading as="h1" variant="home-title" fontSize={['35', '50']}>
           ERIK&apos;s
@@ -58,7 +58,7 @@ const Home = () => (
       </Box>
 
       <Section delay={0.1}>
-        <Heading as="h3" variant="section-title">
+        <Heading as="h3" variant="section-title" mt={{ base: 5, md: 0 }}>
           About me
         </Heading>
         <Box
@@ -95,7 +95,7 @@ const Home = () => (
           <BioYear>2020</BioYear>
           Completed the Multiplatform App Development (DAM) CFGS at the{' '}
           <Link href="https://www.itb.cat/" target="_blank">
-            Barcelona Technologic Institute (ITB)
+            Institut Tecnològic de Barcelona (ITB)
           </Link>
         </BioSection>
         <BioSection>
@@ -155,7 +155,7 @@ const Home = () => (
             href="/houses"
             scroll={false}
             rightIcon={<Icon as={PiCatBold} boxSize={6} />}
-            colorScheme="purple"
+            backgroundColor={'#622680'}
             size="lg"
           >
             Try Catown API

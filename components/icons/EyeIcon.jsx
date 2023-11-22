@@ -8,15 +8,12 @@ const EyeIcon = props => {
       fill="none"
       {...props}
     >
-      {/* Replace the path elements with an image element */}
       <image
-        href="/images/eye_icon.png" // Replace with the actual path to your image
+        href="/images/eye_icon.png"
         width="100%"
         height="100%"
         preserveAspectRatio="xMidYMid slice"
       />
-
-      {/* Other elements (if needed) can be added here */}
     </svg>
   )
 }

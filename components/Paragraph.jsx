@@ -5,7 +5,7 @@ const Paragraph = styled.p`
   letter-spacing: -2.5px;
   text-align: left;
   hyphens: auto;
-  font-size: 18px;
+  font-size: 20px;
 `
 
 export default Paragraph

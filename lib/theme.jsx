@@ -45,7 +45,7 @@ const components = {
         textDecoration: 'underline',
         fontSize: 30,
         textUnderlineOffset: 6,
-        textDecorationColor: '#21162970',
+        textDecorationColor: '#d4d0cb70',
         textDecorationThickness: 4,
         marginTop: 3,
         marginBottom: 4
@@ -61,7 +61,7 @@ const components = {
   },
   Link: {
     baseStyle: {
-      color: '#ff63c3',
+      color: 'codecGlow',
       textUnderlineOffset: 3
     }
   }
@@ -80,7 +80,7 @@ const colors = {
 
 const config = {
   initialColorMode: 'dark',
-  useSystemColorMode: true
+  useSystemColorMode: false
 }
 
 const theme = extendTheme({
