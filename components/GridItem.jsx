@@ -1,6 +1,7 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
 import {
+  Flex,
   Box,
   Text,
   LinkBox,
@@ -24,33 +25,32 @@ const LazyLowPolyCat = dynamic(() => import('./LowPolyCat'), {
   loading: () => <LowPolyCatLoader />
 })
 
-export const GridItem = ({ children, href, title, thumbnail }) => (
-  <Box w="100%" textAlign="center">
-    <LinkBox cursor="pointer">
+export const GridItem = ({ children, thumbnail }) => (
+  <Flex alignItems="center" justifyContent="center">
+    <Box w={{ base: '100%', md: '70%' }} textAlign="center">
       <Image
         src={thumbnail}
-        alt={title}
+        alt={children}
         className="grid-item-thumbnail"
         placeholder="blur"
         loading="lazy"
       />
-      <LinkOverlay href={href} target="_blank">
-        <Text mt={2}>{title}</Text>
-      </LinkOverlay>
-      <Text fontSize={14}>{children}</Text>
-    </LinkBox>
-  </Box>
+      <Text mt={3} fontSize={14}>
+        {children}
+      </Text>
+    </Box>
+  </Flex>
 )
 
-export const HouseGridItem = ({ id, population }) => (
+export const HouseGridItem = ({ house }) => (
   <Box w="100%" textAlign="center">
     <LinkBox
       as={NextLink}
-      href={`/house/${id}`}
+      href={`/house/${house.id}`}
       scroll={false}
       cursor="pointer"
     >
-      <HouseCard id={id} population={population} />
+      <HouseCard house={house} />
     </LinkBox>
   </Box>
 )

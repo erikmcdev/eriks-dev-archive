@@ -51,7 +51,7 @@ const InfiniteScrollGrid = ({ completeData }) => {
 }
 
 const MemoGridItem = React.memo(({ item }) => {
-  return <HouseGridItem id={item.id} population={item.count} />
+  return <HouseGridItem house={item} />
 })
 
 export default InfiniteScrollGrid

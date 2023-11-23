@@ -1,10 +1,27 @@
 import { Box, Center, Heading, Stack } from '@chakra-ui/react'
 import Image from 'next/image'
+import Paragraph from './Paragraph'
+
+import { getImageObject } from '../utils/imageUtils'
 
 const IMAGE =
-  'https://static.designboom.com/wp-content/uploads/2020/07/kooo-architects-machiya-house-renovation-kyoto-designboom-1.jpg'
+  'https://i.pinimg.com/originals/82/1c/78/821c7878a6359caea82f4f680cb58e46.jpg'
 
-export default function HouseCard({ population }) {
+const HouseCoexStatus = ({ coex }) => {
+  return (
+    <Stack direction={'row'}>
+      <Paragraph>status</Paragraph>
+      <Paragraph
+        style={{
+          color: coex < 0.33 ? 'red' : coex < 0.67 ? 'yellow' : 'green'
+        }}
+      >
+        {coex < 0.33 ? 'unbearable' : coex < 0.67 ? 'stable' : 'perfect'}
+      </Paragraph>
+    </Stack>
+  )
+}
+const HouseCard = ({ house }) => {
   return (
     <Center py={12}>
       <Box
@@ -16,7 +33,7 @@ export default function HouseCard({ population }) {
         rounded={'lg'}
         pos={'relative'}
         zIndex={1}
-        height={'380px'}
+        height={'400px'}
         width={'282px'}
       >
         <Box
@@ -45,23 +62,25 @@ export default function HouseCard({ population }) {
         >
           <Image
             style={{ objectFit: 'cover', borderRadius: '8px' }}
-            src={IMAGE}
+            src={getImageObject(house.id.slice(0, 5))}
             alt="#"
             fill={true}
             sizes="(max-width: 600px) 100vw, (max-width: 960px) 80vw, 1200px"
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <p></p>
           <Heading
             fontSize={'2xl'}
             fontFamily={'OCR-B Regular'}
             fontWeight={500}
           >
-            {population} cat{population > 1 ? 's' : ''}
+            {house.count} cat{house.count != 1 ? 's' : ''}
           </Heading>
+          {house.count > 1 && <HouseCoexStatus coex={house.coex} />}
         </Stack>
       </Box>
     </Center>
   )
 }
+
+export default HouseCard

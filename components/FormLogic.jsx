@@ -82,6 +82,7 @@ export const useForm = () => {
   }
 
   return {
+    formData,
     formErrors,
     isSubmitting,
     handleInputChange,

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
 import Image from 'next/image'
-
 import theme from '../lib/theme'
 
-import profilePicture from '../public/images/erikb.jpg'
+import green from '../public/images/erikb.jpg'
+import purple from '../public/images/erikb_v.jpg'
 
 const turnOn = keyframes`
     0% {
@@ -54,11 +54,33 @@ const scan = keyframes`
   }
 `
 
+const fadeInOut = keyframes`
+  0% {
+    box-shadow: 0 0 10px 1px #fff inset, 0 0 10px 1px #fff, 0 0 30px 10px ${theme.colors.codecGlow};
+  }
+  50% {
+    box-shadow: 0 0 10px 1px #fff inset, 0 0 10px 1px #fff, 0 0 30px 10px #613bcb;
+  }
+  100% {
+    box-shadow: 0 0 10px 1px #fff inset, 0 0 10px 1px #fff, 0 0 30px 10px ${theme.colors.codecGlow};
+  }
+`
 const getRandomDelay = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min)
 
-const CodecFrame = () => {
+const CodecScreen = () => {
+  const images = [green, purple, green]
+
   const [delay, setDelay] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [currentImageIndex, images.length])
 
   useEffect(() => {
     const randomDelay = getRandomDelay(500, 1000)
@@ -67,14 +89,14 @@ const CodecFrame = () => {
   return (
     <Box
       backgroundColor="codecSecondary"
-      boxShadow={`0 0 20px 50px #fff inset, 0 0 10px 3px #fff, 0 0 30px 10px ${theme.colors.codecGlow}`}
+      //boxShadow={`0 0 10px 10px #fff inset, 0 0 10px 4px #fff, 0 0 30px 10px ${theme.colors.codecGlow}`}
       position="absolute"
       width="100%"
       height="100%"
       backgroundSize="100% auto"
       left="-0.5px"
       top="10px"
-      animation={`${turnOn} 250ms linear forwards 1s`}
+      animation={`${turnOn} 250ms linear forwards 1s,  ${fadeInOut} 5s linear infinite`}
       transform="scale(1, 0)"
       overflow="hidden"
       display={'inline-block'}
@@ -106,18 +128,23 @@ const CodecFrame = () => {
         width="100%"
         animation={`${scan} 4000ms linear ${delay}ms forwards infinite`}
       />
-      <Image
-        src={profilePicture}
-        alt={'profile_picture'}
-        fill={true}
-        style={{
-          objectFit: 'contain',
-          zIndex: -1,
-          filter: 'blur(0.3px)'
-        }}
-      />
+      {images.map((image, index) => (
+        <Image
+          key={index}
+          src={image}
+          alt={index}
+          fill={true}
+          className={index === currentImageIndex ? 'visible' : 'hidden'}
+          style={{
+            objectFit: 'contain',
+            zIndex: -1,
+            filter: 'blur(0.5px)',
+            transition: 'opacity 5s linear'
+          }}
+        />
+      ))}
     </Box>
   )
 }
 
-export default CodecFrame
+export default CodecScreen

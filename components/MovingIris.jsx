@@ -29,6 +29,10 @@ const MovingIris = () => {
     }
   }, [])
 
+  return <MemoImage position={position} />
+}
+
+const MemoImage = React.memo(({ position }) => {
   return (
     <Image
       src={iris}
@@ -43,6 +47,6 @@ const MovingIris = () => {
       }}
     />
   )
-}
+})
 
 export default MovingIris

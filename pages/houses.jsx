@@ -8,7 +8,7 @@ const Houses = ({ data }) => (
   <Layout title="Catown">
     <Container maxW="75%" mt={'5'}>
       <Heading as="h3" fontSize={40} mb={5} textAlign={'center'}>
-        HOMES
+        HOUSES
       </Heading>
       <Divider borderWidth="1px" />
       <InfiniteScrollGrid completeData={data}></InfiniteScrollGrid>

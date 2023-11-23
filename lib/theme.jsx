@@ -61,7 +61,7 @@ const components = {
   },
   Link: {
     baseStyle: {
-      color: 'codecGlow',
+      color: '#3bcb86',
       textUnderlineOffset: 3
     }
   }

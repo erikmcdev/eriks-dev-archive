@@ -1,7 +1,6 @@
 export async function getHouses() {
   const response = await fetch('http://localhost:5005/houses')
   const data = await response.json()
-  //console.log(data)
 
   return data
 }
@@ -21,8 +20,8 @@ export async function postAddCat(request, house_id) {
       body: JSON.stringify({
         name: request.name,
         birthdate: request.birthdate,
-        nature: parseInt(request.nature, 10),
-        destination_id: house_id
+        nature: request.nature,
+        house_id: house_id
       })
     })
 

@@ -18,8 +18,8 @@ import Layout from '../components/layouts/Article'
 import Section from '../components/Section'
 import { GridItem } from '../components/GridItem'
 import CodecFrame from '../components/CodecFrame'
-import thumbYouTube from '../public/images/links/youtube.png'
-import thumbInkdrop from '../public/images/inkdrop-banner.jpg'
+import thumbHouses from '../public/images/catown_houses.jpg'
+import thumbCats from '../public/images/elio_screen.jpg'
 
 const Home = () => (
   <Layout>
@@ -162,19 +162,11 @@ const Home = () => (
           </Button>
         </Box>
         <SimpleGrid columns={[1, 2, 2]} gap={6} mt={5}>
-          <GridItem
-            href="https://www.youtube.com/devaslife"
-            title="Dev as Life"
-            thumbnail={thumbYouTube}
-          >
-            My YouTube channel (&gt;150k subs)
+          <GridItem title="Dev as Life" thumbnail={thumbHouses}>
+            Houses page screen
           </GridItem>
-          <GridItem
-            href="https://www.inkdrop.app/"
-            title="Inkdrop"
-            thumbnail={thumbInkdrop}
-          >
-            A Markdown note-taking app
+          <GridItem title="Inkdrop" thumbnail={thumbCats}>
+            Cat looking a 3d model of himself existentially
           </GridItem>
         </SimpleGrid>
       </Section>

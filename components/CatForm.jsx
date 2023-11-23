@@ -11,8 +11,13 @@ import {
 import { useForm } from './FormLogic'
 
 const CatForm = () => {
-  const { formErrors, isSubmitting, handleInputChange, handleSubmit } =
-    useForm()
+  const {
+    formData,
+    formErrors,
+    isSubmitting,
+    handleInputChange,
+    handleSubmit
+  } = useForm()
   const currentDate = new Date().toISOString().split('T')[0]
 
   return (
@@ -27,6 +32,7 @@ const CatForm = () => {
           maxLength={20}
           onChange={handleInputChange}
           disabled={isSubmitting}
+          value={formData.name}
         />
         <FormErrorMessage>{formErrors.name}</FormErrorMessage>
       </FormControl>
@@ -41,6 +47,7 @@ const CatForm = () => {
           max={currentDate}
           onChange={handleInputChange}
           disabled={isSubmitting}
+          value={formData.birthdate}
         />
         <FormErrorMessage>{formErrors.birthdate}</FormErrorMessage>
       </FormControl>
@@ -53,6 +60,7 @@ const CatForm = () => {
           focusBorderColor="#3c0461"
           onChange={handleInputChange}
           disabled={isSubmitting}
+          value={formData.nature}
         >
           <option value="LEADER_OF_THE_GANG">leader of the gang</option>
           <option value="NINJA_INVESTIGATOR">ninja investigator</option>

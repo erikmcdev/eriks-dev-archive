@@ -2,7 +2,6 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['i.pinimg.com'],
-    domains: ['static.designboom.com']
+    domains: ['i.pinimg.com', 'static.designboom.com']
   },
 }

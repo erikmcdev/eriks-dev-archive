@@ -18,7 +18,8 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import { IoLogoGithub } from 'react-icons/io5'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
-  const active = path === href
+  const active =
+    path === href || (href.includes('house') && path.includes('house'))
   const inactiveColor = 'whiteAlpha.900'
   return (
     <Link
