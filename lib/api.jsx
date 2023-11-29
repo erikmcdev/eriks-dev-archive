@@ -1,38 +1,41 @@
-export async function getHouses() {
-  const response = await fetch('http://localhost:5005/houses')
-  const data = await response.json()
+const apiUrl = process.env.FLASK_API_URL
 
-  return data
-}
-export async function getCatsByHouseId(houseId) {
-  const response = await fetch(`http://localhost:5005/cats?house_id=${houseId}`)
-  const data = await response.json()
-
-  return data
-}
-export async function postAddCat(request, house_id) {
+async function makeApiCall(request, options = {}) {
   try {
-    const response = await fetch('http://localhost:5005/add_cat', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: request.name,
-        birthdate: request.birthdate,
-        nature: request.nature,
-        house_id: house_id
-      })
-    })
+    const response = await fetch(request, options)
 
     if (!response.ok) {
       const errorData = await response.json()
       throw new Error(errorData.message || 'Network response was not ok')
     }
-
     const data = await response.json()
     return data
   } catch (err) {
     throw err
   }
+}
+
+export async function getHouses() {
+  const response = await makeApiCall(`${apiUrl}/houses`)
+  return response
+}
+export async function getCatsByHouseId(houseId) {
+  const response = await makeApiCall(`${apiUrl}/cats?house_id=${houseId}`)
+  return response
+}
+export async function postAddCat(baseUrl, request) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: request.name,
+      birthdate: request.birthdate,
+      nature: request.nature,
+      house_id: request.houseId
+    })
+  }
+  const response = await makeApiCall(`${baseUrl}/add_cat`, options)
+  return response
 }

@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useToast } from '@chakra-ui/react'
 
-import { postAddCat } from '../lib/api'
-
 export const useForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -54,7 +52,18 @@ export const useForm = () => {
       setIsSubmitting(true)
       try {
         const { id } = router.query
-        await postAddCat(formData, id)
+        formData.houseId = id
+        const response = await fetch('/api/cats', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        if (response.status !== 201) {
+          const message = await response.json()
+          throw new Error(message)
+        }
         toast({
           title: 'Cat added successfully!',
           status: 'success',
