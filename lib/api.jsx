@@ -2,7 +2,13 @@ const apiUrl = process.env.FLASK_API_URL
 
 async function makeApiCall(request, options = {}) {
   try {
-    const response = await fetch(request, options)
+    const headers = {
+      ...options.headers
+    }
+    if (!headers['Api-Key']) {
+      headers['Api-Key'] = 'fQoLYd6nytrB-iYyUBJLtEjJexeXe99Htl5eegBOdJg'
+    }
+    const response = await fetch(request, { ...options, headers })
 
     if (!response.ok) {
       const errorData = await response.json()
@@ -27,7 +33,8 @@ export async function postAddCat(baseUrl, request) {
   const options = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Api-Key': 'fQoLYd6nytrB-iYyUBJLtEjJexeXe99Htl5eegBOdJg'
     },
     body: JSON.stringify({
       name: request.name,

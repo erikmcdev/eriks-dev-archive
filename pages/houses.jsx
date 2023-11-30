@@ -11,16 +11,24 @@ const Houses = ({ data }) => (
         HOUSES
       </Heading>
       <Divider borderWidth="1px" />
-      <InfiniteScrollGrid completeData={data}></InfiniteScrollGrid>
+      <InfiniteScrollGrid completeData={data} />
     </Container>
   </Layout>
 )
 
 export async function getServerSideProps() {
-  const data = await getHouses()
-  return {
-    props: {
-      data
+  try {
+    const data = await getHouses()
+    return {
+      props: {
+        data: data
+      }
+    }
+  } catch (error) {
+    return {
+      props: {
+        data: []
+      }
     }
   }
 }
