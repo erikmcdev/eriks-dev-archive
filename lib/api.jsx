@@ -1,14 +1,15 @@
 const apiUrl = process.env.FLASK_API_URL
+const apiKey = process.env.FLASK_API_KEY
 
-async function makeApiCall(request, options = {}) {
+async function makeApiCall(requestUrl, options = {}) {
   try {
     const headers = {
       ...options.headers
     }
     if (!headers['Api-Key']) {
-      headers['Api-Key'] = 'fQoLYd6nytrB-iYyUBJLtEjJexeXe99Htl5eegBOdJg'
+      headers['Api-Key'] = apiKey
     }
-    const response = await fetch(request, { ...options, headers })
+    const response = await fetch(requestUrl, { ...options, headers })
 
     if (!response.ok) {
       const errorData = await response.json()
@@ -29,12 +30,12 @@ export async function getCatsByHouseId(houseId) {
   const response = await makeApiCall(`${apiUrl}/cats?house_id=${houseId}`)
   return response
 }
-export async function postAddCat(baseUrl, request) {
+export async function postAddCat(baseUrl, request, apiKey) {
   const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Api-Key': 'fQoLYd6nytrB-iYyUBJLtEjJexeXe99Htl5eegBOdJg'
+      'Api-Key': apiKey
     },
     body: JSON.stringify({
       name: request.name,
