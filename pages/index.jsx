@@ -166,7 +166,7 @@ const Home = () => (
             Houses page screen
           </GridItem>
           <GridItem title="Inkdrop" thumbnail={thumbCats}>
-            Cat looking a 3d model of himself existentially
+            Cat existentially looking a 3d model of himself
           </GridItem>
         </SimpleGrid>
       </Section>

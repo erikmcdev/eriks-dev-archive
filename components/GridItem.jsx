@@ -55,7 +55,7 @@ export const HouseGridItem = ({ house }) => (
   </Box>
 )
 
-export const CatGridItem = ({ name, birthdate, nature }) => {
+export const CatGridItem = ({ name, birthdate, nature, modelFile }) => {
   const dateObj = new Date(birthdate)
   const day = dateObj.getDate()
   const month = dateObj
@@ -66,7 +66,7 @@ export const CatGridItem = ({ name, birthdate, nature }) => {
   return (
     <Box w="100%" textAlign="center">
       <VStack>
-        <LazyLowPolyCat />
+        <LazyLowPolyCat urlCatGLB={`models/${modelFile}`} />
         <CatText fontSize={30}>{name}</CatText>
         <NatureBadge nature={nature} />
         <HStack>

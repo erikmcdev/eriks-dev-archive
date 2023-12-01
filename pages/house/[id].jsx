@@ -4,6 +4,7 @@ import Layout from '../../components/layouts/Article'
 import { CatGridItem } from '../../components/GridItem'
 
 import { getCatsByHouseId } from '../../lib/api'
+import { getFileNameByItem } from '../../utils/fileResources'
 
 const DynamicAccordion = dynamic(
   () => import('../../components/AccordionForm'),
@@ -30,6 +31,7 @@ const HouseDetailPage = ({ data }) => (
             name={cat.name}
             birthdate={cat.birthdate}
             nature={cat.nature}
+            modelFile={getFileNameByItem(cat.id)}
           />
         ))}
       </SimpleGrid>

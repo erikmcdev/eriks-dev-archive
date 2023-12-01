@@ -8,14 +8,10 @@ function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4))
 }
 
-const LowPolyCat = () => {
+const LowPolyCat = ({ urlCatGLB }) => {
   const refContainer = useRef()
   const [loading, setLoading] = useState(true)
   const refRenderer = useRef()
-  const urlDogGLB =
-    (process.env.NODE_ENV === 'production'
-      ? 'https://craftzdog.global.ssl.fastly.net/homepage'
-      : '') + '/elio.glb'
 
   const handleWindowResize = useCallback(() => {
     const { current: renderer } = refRenderer
@@ -73,7 +69,7 @@ const LowPolyCat = () => {
       controls.autoRotate = true
       controls.target = target
 
-      loadGLTFModel(scene, urlDogGLB, {
+      loadGLTFModel(scene, urlCatGLB, {
         receiveShadow: false,
         castShadow: false
       }).then(() => {

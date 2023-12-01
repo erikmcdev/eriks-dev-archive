@@ -113,7 +113,7 @@ const CodecFrame = () => {
         style={{
           objectFit: 'contain',
           zIndex: -1,
-          filter: 'blur(0.3px)'
+          filter: 'blur(0.5px)'
         }}
       />
     </Box>
