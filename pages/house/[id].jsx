@@ -4,7 +4,7 @@ import Layout from '../../components/layouts/Article'
 import { CatGridItem } from '../../components/GridItem'
 
 import { getCatsByHouseId } from '../../lib/api'
-import { getFileNameByItem } from '../../utils/fileResources'
+import { getModelFileNameByUUID } from '../../utils/fileResources'
 
 const DynamicAccordion = dynamic(
   () => import('../../components/AccordionForm'),
@@ -31,7 +31,7 @@ const HouseDetailPage = ({ data }) => (
             name={cat.name}
             birthdate={cat.birthdate}
             nature={cat.nature}
-            modelFile={getFileNameByItem(cat.id)}
+            modelFile={cat.model}
           />
         ))}
       </SimpleGrid>
@@ -41,9 +41,16 @@ const HouseDetailPage = ({ data }) => (
 
 export async function getServerSideProps({ params }) {
   const data = await getCatsByHouseId(params.id)
+  // Fetch file names based on cat ids and add them to each cat object
+  const updatedData = await Promise.all(
+    data.map(async cat => ({
+      ...cat,
+      model: await getModelFileNameByUUID(cat.id)
+    }))
+  )
   return {
     props: {
-      data
+      data: updatedData
     }
   }
 }

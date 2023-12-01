@@ -3,6 +3,7 @@ import Layout from '../components/layouts/Article'
 
 import InfiniteScrollGrid from '../components/InfiniteScrollGrid'
 import { getHouses } from '../lib/api'
+import { getImageFileNameByUUID } from '../utils/fileResources'
 
 const Houses = ({ data }) => (
   <Layout title="Catown">
@@ -19,9 +20,16 @@ const Houses = ({ data }) => (
 export async function getServerSideProps() {
   try {
     const data = await getHouses()
+    // Fetch file names based on cat ids and add them to each cat object
+    const updatedData = await Promise.all(
+      data.map(async house => ({
+        ...house,
+        picture: await getImageFileNameByUUID(house.id)
+      }))
+    )
     return {
       props: {
-        data: data
+        data: updatedData
       }
     }
   } catch (error) {

@@ -66,7 +66,7 @@ export const CatGridItem = ({ name, birthdate, nature, modelFile }) => {
   return (
     <Box w="100%" textAlign="center">
       <VStack>
-        <LazyLowPolyCat urlCatGLB={`models/${modelFile}`} />
+        <LazyLowPolyCat urlCatGLB={`/models/${modelFile}`} />
         <CatText fontSize={30}>{name}</CatText>
         <NatureBadge nature={nature} />
         <HStack>

@@ -2,11 +2,6 @@ import { Box, Center, Heading, Stack } from '@chakra-ui/react'
 import Image from 'next/image'
 import Paragraph from './Paragraph'
 
-import { getImageObject } from '../utils/imageUtils'
-
-const IMAGE =
-  'https://i.pinimg.com/originals/82/1c/78/821c7878a6359caea82f4f680cb58e46.jpg'
-
 const HouseCoexStatus = ({ coex }) => {
   return (
     <Stack direction={'row'}>
@@ -49,9 +44,8 @@ const HouseCard = ({ house }) => {
             pos: 'absolute',
             top: 5,
             left: 0,
-            //backgroundColor: '#d5e1f5',
-            backgroundImage: `url( ${IMAGE})`,
-            filter: 'blur(15px)',
+            backgroundColor: '#d5e1f5',
+            filter: 'blur(10px)',
             zIndex: -1
           }}
           _groupHover={{
@@ -62,7 +56,7 @@ const HouseCard = ({ house }) => {
         >
           <Image
             style={{ objectFit: 'cover', borderRadius: '8px' }}
-            src={getImageObject(house.id.slice(0, 5))}
+            src={`/images/houses/${house.picture}`}
             alt="#"
             fill={true}
             sizes="(max-width: 600px) 100vw, (max-width: 960px) 80vw, 1200px"
