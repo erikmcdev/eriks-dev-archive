@@ -45,7 +45,9 @@ export async function getServerSideProps({ params }) {
   const updatedData = await Promise.all(
     data.map(async cat => ({
       ...cat,
-      model: await getModelFileNameByUUID(cat.id)
+      model: ['elio', 'iona', 'maxwell'].includes(cat.name.toLowerCase())
+        ? `${cat.name.toLowerCase()}.glb`
+        : await getModelFileNameByUUID(cat.id)
     }))
   )
   return {

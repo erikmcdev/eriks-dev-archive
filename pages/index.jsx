@@ -108,7 +108,7 @@ const Home = () => (
         </BioSection>
         <BioSection>
           <BioYear>2022 to present</BioYear>
-          Free-styling
+          Looking for a new job !
         </BioSection>
       </Section>
 
