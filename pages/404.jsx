@@ -19,7 +19,7 @@ const NotFound = () => {
         The page you&apos;re looking for does not exist in this universe, but
         maybe in another it does.
       </Text>
-      <Image src={notFound} alt={'404'}></Image>
+      <Image src={notFound} alt={'404'} />
       <Divider my={6} />
       <Box my={6} align="center">
         <Button as={NextLink} href="/" backgroundColor={'purpleIris'}>
