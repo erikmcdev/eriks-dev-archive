@@ -1,7 +1,9 @@
 # Erik's DEV Archive
 
-Welcome to my personal web portfolio, built with React, Next.js, Chakra UI, and Three.js. This portfolio showcases my skills, projects, experience and learning process as I didn't have any React knowledge prior to this project. It was built based on [Takuya Matsuyama's Webpage](https://www.craftz.dog/) (https://github.com/craftzdog/craftzdog-homepage)
-It also integrates with the [Catown API](https://github.com/erikmcdev/catown-flask-api) to display a dynamic showcase of my work. You can check the deployed website here: 
+Welcome to my personal web portfolio, built with React, Next.js, Chakra UI, and Three.js. This portfolio showcases my skills, projects, experience and learning process as I didn't have any React knowledge prior to this project. It was built based on [Takuya Matsuyama's Webpage](https://www.craftz.dog/)
+It also integrates with the [Catown API](https://github.com/erikmcdev/catown-flask-api) to display a dynamic showcase of my work. 
+
+You can check the deployed website here: https://www.erikdevarch.tech/
 
 ## Tech Stack
 
