@@ -12,13 +12,14 @@ import {
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { PiCatBold } from 'react-icons/pi'
+import { IoLogoGithub } from 'react-icons/io5'
 import Paragraph from '../components/Paragraph'
 import { BioSection, BioYear } from '../components/Bio'
 import Layout from '../components/layouts/Article'
 import Section from '../components/Section'
 import { GridItem } from '../components/GridItem'
 import CodecFrame from '../components/CodecFrame'
-import thumbHouses from '../public/images/catown_houses.jpg'
+import catsTable from '../public/images/cats_table.png'
 import thumbCats from '../public/images/elio_screen.jpg'
 
 const Home = () => (
@@ -85,7 +86,7 @@ const Home = () => (
 
       <Section delay={0.2}>
         <Heading as="h3" variant="section-title">
-          Timeline (canonical events)
+          Timeline
         </Heading>
         <BioSection>
           <BioYear>2000</BioYear>
@@ -115,7 +116,9 @@ const Home = () => (
         <Heading as="h3" variant="section-title">
           Other interests
         </Heading>
-        <Paragraph>Snorkeling, Music, Videogames, unsolved mysteries</Paragraph>
+        <Paragraph>
+          Snorkeling, Music, Videogames, unsolved mysteries, space
+        </Paragraph>
       </Section>
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
@@ -155,15 +158,26 @@ const Home = () => (
             href="/houses"
             scroll={false}
             rightIcon={<Icon as={PiCatBold} boxSize={6} />}
-            backgroundColor={'#622680'}
+            backgroundColor={'purpleIris'}
             size="lg"
           >
             Try Catown API
           </Button>
+          <Button
+            as={NextLink}
+            href="https://github.com/erikmcdev/catown-flask-api"
+            scroll={false}
+            rightIcon={<Icon as={IoLogoGithub} boxSize={6} />}
+            backgroundColor={'black'}
+            ml={2}
+            size="lg"
+          >
+            API Source Code
+          </Button>
         </Box>
-        <SimpleGrid columns={[1, 2, 2]} gap={6} mt={5}>
-          <GridItem title="Dev as Life" thumbnail={thumbHouses}>
-            Houses page screen
+        <SimpleGrid columns={[1, 1, 1]} gap={6} mt={5}>
+          <GridItem title="Dev as Life" thumbnail={catsTable}>
+            Cats compatibilitily table
           </GridItem>
           <GridItem title="Inkdrop" thumbnail={thumbCats}>
             Cat existentially looking a 3d model of himself

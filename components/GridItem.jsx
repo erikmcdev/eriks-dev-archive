@@ -27,7 +27,7 @@ const LazyLowPolyCat = dynamic(() => import('./LowPolyCat'), {
 
 export const GridItem = ({ children, thumbnail }) => (
   <Flex alignItems="center" justifyContent="center">
-    <Box w={{ base: '100%', md: '70%' }} textAlign="center">
+    <Box w={{ base: '100%', md: '60%' }} textAlign="center">
       <Image
         src={thumbnail}
         alt={children}

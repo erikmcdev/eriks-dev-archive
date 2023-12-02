@@ -4,16 +4,27 @@ import { useRouter } from 'next/router'
 
 const ModelAuthors = () => {
   return (
-    <Box align="center" opacity={0.4} fontSize="sm">
-      &copy; {new Date().getFullYear()}{' '}
-      <NextLink
-        target="_blank"
-        href="https://sketchfab.com/3d-models/cat-ps1-low-poly-rigged-78d863ba43b34a6c9fdd6c61dbf5776f"
-      >
-        Cat - PS1 Low Poly (Rigged) by @Wersaus33{' '}
-      </NextLink>
-      texturized with different cat pictures
-    </Box>
+    <VStack>
+      <Box align="center" opacity={0.4} fontSize="sm">
+        &copy; {new Date().getFullYear()}{' '}
+        <NextLink
+          target="_blank"
+          href="https://sketchfab.com/3d-models/cat-ps1-low-poly-rigged-78d863ba43b34a6c9fdd6c61dbf5776f"
+        >
+          Cat - PS1 Low Poly (Rigged) by @wersaus33{' '}
+        </NextLink>
+        texturized with different cat pictures
+      </Box>
+      <Box align="center" opacity={0.4} fontSize="sm">
+        &copy; {new Date().getFullYear()}{' '}
+        <NextLink
+          target="_blank"
+          href="https://sketchfab.com/3d-models/maxwell-the-cat-dingus-2ca7f3c1957847d6a145fc35de9046b0"
+        >
+          Maxwell the cat (Dingus) by @alwayshasbean{' '}
+        </NextLink>
+      </Box>
+    </VStack>
   )
 }
 const Footer = () => {

@@ -75,7 +75,8 @@ const colors = {
   grassTeal: '#88ccca',
   codecSecondary: '#274851',
   codecGlow: '#3bcb86',
-  codecHighlight: '#121010'
+  codecHighlight: '#121010',
+  purpleIris: '#622680'
 }
 
 const config = {
