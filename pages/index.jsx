@@ -4,7 +4,6 @@ import {
   Heading,
   Box,
   Divider,
-  SimpleGrid,
   List,
   ListItem,
   Button,
@@ -17,10 +16,7 @@ import Paragraph from '../components/Paragraph'
 import { BioSection, BioYear } from '../components/Bio'
 import Layout from '../components/layouts/Article'
 import Section from '../components/Section'
-import { GridItem } from '../components/GridItem'
 import CodecFrame from '../components/CodecFrame'
-import catsTable from '../public/images/cats_table.png'
-import thumbCats from '../public/images/elio_screen.jpg'
 
 const Home = () => (
   <Layout>
@@ -175,14 +171,6 @@ const Home = () => (
             API Source Code
           </Button>
         </Box>
-        <SimpleGrid columns={[1, 1, 1]} gap={6} mt={5}>
-          <GridItem title="Dev as Life" thumbnail={catsTable}>
-            Cats compatibilitily table
-          </GridItem>
-          <GridItem title="Inkdrop" thumbnail={thumbCats}>
-            Cat existentially looking a 3d model of himself
-          </GridItem>
-        </SimpleGrid>
       </Section>
     </Container>
   </Layout>
