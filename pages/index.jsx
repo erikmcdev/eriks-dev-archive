@@ -165,7 +165,8 @@ const Home = () => (
             scroll={false}
             rightIcon={<Icon as={IoLogoGithub} boxSize={6} />}
             backgroundColor={'black'}
-            ml={2}
+            ml={{ md: 2 }}
+            mt={{ base: 2, md: 0 }}
             size="lg"
           >
             API Source Code
